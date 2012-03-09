@@ -1,0 +1,15 @@
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-surroundgit"]
+	path = bundle/vim-surroundgit
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = http://git.wincent.com/command-t.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/vim-colors-solarized"]
+	path = bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
