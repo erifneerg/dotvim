@@ -1,0 +1,2 @@
+supertab.vba: call delete('/Users/doriank/.vim/doc/supertab.txt')|call delete('/Users/doriank/.vim/plugin/supertab.vim')
+ZoomWin.vba: call delete('/Users/doriank/.vim/plugin/ZoomWinPlugin.vim')|call delete('/Users/doriank/.vim/doc/ZoomWin.txt')|call delete('/Users/doriank/.vim/autoload/ZoomWin.vim')
