@@ -24,7 +24,10 @@
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/vim-pathegon"]
 	path = bundle/vim-pathegon
-	url = https://github.com/tpope/vim-pathogen.git
+	url = git://github.com/tpope/vim-pathogen.git
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
