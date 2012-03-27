@@ -1,4 +1,4 @@
-"it's 20XX no vi please
+"set to vim not vi
 set nocompatible
 "said to help with osx clipboard fun stuff
 set clipboard=unnamed
@@ -30,16 +30,15 @@ elseif has('win32')
   set guifont=Courier\ New:h19
 endif
 
-if &t_Co == 256
-  let g:solarized_termcolors=256
-endif
+let g:solarized_termcolors=256
+colorscheme solarized
+set background=light
+
 
 if has('gui_running')
-    set background=light
-    colorscheme solarized
     set guioptions=egmrt
-else
-    set background=dark
+"else
+"    set background=dark
 endif
 
 ab bl set background=light
@@ -127,7 +126,12 @@ if has("autocmd")
   augroup END
 endif
 
-
+""""""""""""""""
+"pathogen setup
+""""""""""""""""
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype on
 
 """"""""""""""""""""""""""
 " NERDTree configuration
@@ -145,18 +149,13 @@ map <Leader>[ :NERDTreeToggle<CR>
 
 au BufRead,BufNewFile *.scss set filetype=scss
 
-""""""""""""""""
-"pathogen setup
-""""""""""""""""
-call pathogen#infect()
 
 """"""""""""""""
 "VimRoom setup
 """"""""""""""""
-g:vimroom_navigational_keys 
-g:vimroom_background black
-ab vr bd<CR>:VimroomToggle<CR>
-"se nonu<CR>:
+"g:vimroom_navigational_keys 1
+"g:vimroom_background black
+"ab vr :VimroomToggle<CR>
 
 """"""""""""
 "short cuts
