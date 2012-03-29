@@ -1,6 +1,3 @@
-[submodule "bundle/fugitive"]
-	path = bundle/fugitive
-	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround.git
 	url = https://github.com/tpope/vim-surround.git
@@ -22,8 +19,8 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/vim-pathegon"]
-	path = bundle/vim-pathegon
+[submodule "bundle/vim-pathogen"]
+	path = bundle/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
 [submodule "bundle/command-t"]
 	path = bundle/command-t
@@ -31,3 +28,6 @@
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = git://github.com/tpope/vim-markdown.git
+[submodule "bundle/snipMate"]
+	path = bundle/snipMate
+	url = git://github.com/vim-scripts/snipMate.git
