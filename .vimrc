@@ -19,6 +19,17 @@ set t_Co=256
 "set guifont=Andale\ Mono:h14
 "set guifont=Courier\ New:h19
 
+""""""""""""""""
+"pathogen setup
+""""""""""""""""
+call pathogen#infect()
+syntax on
+filetype plugin indent on
+
+"snipMate setup because of pathegen
+"""""""""""""""""""""""""""""""""""
+let g:snippets_dir = "~/.vim/snippets"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OS picking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -126,12 +137,6 @@ if has("autocmd")
   augroup END
 endif
 
-""""""""""""""""
-"pathogen setup
-""""""""""""""""
-filetype off
-call pathogen#runtime_append_all_bundles()
-filetype on
 
 """"""""""""""""""""""""""
 " NERDTree configuration
