@@ -35,5 +35,5 @@
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
 [submodule "vim-powerline"]
-	path = vim-powerline
+	path = bundle/vim-powerline
 	url = git://github.com/Lokaltog/vim-powerline.git

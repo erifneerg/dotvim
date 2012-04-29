@@ -30,6 +30,11 @@ filetype plugin indent on
 """""""""""""""""""""""""""""""""""
 let g:snippets_dir = "~/.vim/snippets"
 
+"Powerline
+"
+set laststatus=2   " Always show the statusline
+let g:Powerline_symbols = 'fancy'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OS picking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
