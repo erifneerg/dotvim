@@ -31,24 +31,29 @@ filetype plugin indent on
 let g:snippets_dir = "~/.vim/snippets"
 
 "Powerline
-"
+""""""""""
 set laststatus=2   " Always show the statusline
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'unicode'
+let Powerline_symbols = 'unicode'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OS picking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('macunix')
-  set guifont=Inconsolata:h18
+  set guifont=DejaVu\ Sans\ Mono:h18
 elseif has('unix')
-  set guifont=Inconsolata\ Medium\ 18
+  set guifont=DejaVu\ Sans\ Mono:h18
 elseif has('win32')
-  set guifont=Courier\ New:h19
+  set guifont=Courier\ New:h18
 endif
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Solarize
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:solarized_termcolors=256
 colorscheme solarized
 set background=light
+call togglebg#map("") 
 
 
 if has('gui_running')
@@ -57,15 +62,10 @@ if has('gui_running')
 "    set background=dark
 endif
 
-ab bl set background=light
-ab bd set background=dark
-
-"call togglebg#map("<F5>")
-
 """""""""""""""""
 "side boarders
 """""""""""""""""
-set foldcolumn=3
+set foldcolumn=0
 
 "if exists('+colorcolumn')
 "  set colorcolumn=80
@@ -93,10 +93,9 @@ set ffs=unix,dos,mac
 set encoding=utf-8
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Whitespace stuff
+" Whitespace
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"set nowrap
 set list listchars=tab:\ \ ,trail:·
 "recommend by drupal.org
 set expandtab
@@ -104,6 +103,7 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
+"set display+=lastline
 
 """"""""""""""""""
 " Searching
@@ -165,7 +165,9 @@ au BufRead,BufNewFile *.scss set filetype=scss
 """"""""""""""""
 "g:vimroom_navigational_keys 1
 "g:vimroom_background black
-"ab vr :VimroomToggle<CR>
+ab vr set statusline=0<CR>:VimroomToggle<CR>
+"ab vr <Plug>VimroomToggle
+"nnoremap <silent> <Leader>mz <Plug>VimroomToggle
 
 """"""""""""
 "short cuts
@@ -178,3 +180,5 @@ au BufRead,BufNewFile *.scss set filetype=scss
 """""""""""""""""
 
 ab m2h :%! /usr/local/bin/Markdown.pl --html4tags <cr>
+
+set nolist
