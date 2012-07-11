@@ -11,6 +11,14 @@ set ruler
 set t_Co=256
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"pathogen setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax on
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -38,11 +46,6 @@ if has('gui_running')
 "    set background=dark
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"pathogen setup
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call pathogen#infect()
-filetype plugin indent on
 
 "snipMate setup because of pathegen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
