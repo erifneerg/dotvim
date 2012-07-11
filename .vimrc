@@ -13,30 +13,7 @@ set t_Co=256
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set guifont=Inconsolata\ Medium\ 18
-"set guifont=Anonymous\ Pro:h18
-"set guifont=Consolas\ for\ BBEdit:h18
-"set guifont=Andale\ Mono:h14
-"set guifont=Courier\ New:h19
 
-""""""""""""""""
-"pathogen setup
-""""""""""""""""
-call pathogen#infect()
-syntax on
-filetype plugin indent on
-
-"snipMate setup because of pathegen
-"""""""""""""""""""""""""""""""""""
-let g:snippets_dir = "~/.vim/snippets"
-
-"Powerline
-""""""""""
-set laststatus=2   " Always show the statusline
-"let g:Powerline_symbols = 'unicode'
-let Powerline_symbols = 'unicode'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OS picking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('macunix')
@@ -47,7 +24,6 @@ elseif has('win32')
   set guifont=Courier\ New:h18
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Solarize
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:solarized_termcolors=256
@@ -61,6 +37,24 @@ if has('gui_running')
 "else
 "    set background=dark
 endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"pathogen setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call pathogen#infect()
+filetype plugin indent on
+
+"snipMate setup because of pathegen
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:snippets_dir = "~/.vim/snippets"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Powerline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set laststatus=2   " Always show the statusline
+"let g:Powerline_symbols = 'unicode'
+let Powerline_symbols = 'unicode'
 
 """""""""""""""""
 "side boarders
@@ -158,16 +152,6 @@ map <Leader>[ :NERDTreeToggle<CR>
 :filetype plugin on
 
 au BufRead,BufNewFile *.scss set filetype=scss
-
-
-""""""""""""""""
-"VimRoom setup
-""""""""""""""""
-"g:vimroom_navigational_keys 1
-"g:vimroom_background black
-ab vr set statusline=0<CR>:VimroomToggle<CR>
-"ab vr <Plug>VimroomToggle
-"nnoremap <silent> <Leader>mz <Plug>VimroomToggle
 
 """"""""""""
 "short cuts
