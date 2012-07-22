@@ -37,3 +37,6 @@
 [submodule "bundle/Color-Smyck/colors"]
 	path = bundle/Color-Smyck/colors
 	url = git://github.com/hukl/Smyck-Color-Scheme.git
+[submodule "bundle/AutoComplPop"]
+	path = bundle/AutoComplPop
+	url = git://github.com/vim-scripts/AutoComplPop.git
