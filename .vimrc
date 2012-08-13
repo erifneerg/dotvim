@@ -1,29 +1,29 @@
+""""""""""""""
+"pathogen setup
+""""""""""""""
+syntax on
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
+"basic setup
+"""""""""""""
 "set to vim not vi
 set nocompatible
 "said to help with osx clipboard fun stuff
 set clipboard=unnamed
-"Enable syntax hl
-syntax enable
 set wrap
 set linebreak
 set number
 set ruler
 set t_Co=256
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"pathogen setup
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax on
-filetype off
-call pathogen#runtime_append_all_bundles()
-filetype plugin indent on
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""
 " Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""
 
 " OS picking
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""
 if has('macunix')
   set guifont=DejaVu\ Sans\ Mono:h18
 elseif has('unix')
@@ -33,7 +33,7 @@ elseif has('win32')
 endif
 
 " Solarize
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""
 let g:solarized_termcolors=256
 colorscheme solarized
 set background=light
@@ -48,13 +48,14 @@ endif
 
 
 "snipMate setup because of pathegen
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:snippets_dir = "~/.vim/snippets"
+""""""""""""""
+let g:snippets_dir = "~/.vim/bundle/snippets/snippets/"
+"let g:snippets_dir = "~/.vim/snippets"
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""
 "Powerline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""
 set laststatus=2   " Always show the statusline
 "let g:Powerline_symbols = 'unicode'
 let Powerline_symbols = 'unicode'
@@ -89,9 +90,9 @@ set ffs=unix,dos,mac
 " Set encoding
 set encoding=utf-8
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""
 " Whitespace
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""
 
 set list listchars=tab:\ \ ,trail:·
 "recommend by drupal.org
@@ -116,15 +117,15 @@ set smartcase
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
-" Disable Arrows
-inoremap  <Up>     <NOP>
-inoremap  <Down>   <NOP>
-inoremap  <Left>   <NOP>
-inoremap  <Right>  <NOP>
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
+"" Disable Arrows
+"inoremap  <Up>     <NOP>
+"inoremap  <Down>   <NOP>
+"inoremap  <Left>   <NOP>
+"inoremap  <Right>  <NOP>
+"noremap   <Up>     <NOP>
+"noremap   <Down>   <NOP>
+"noremap   <Left>   <NOP>
+"noremap   <Right>  <NOP>
 
 """""""""""""""""""""""""""""""""""""""""
 " Drupal module/etc syntax highlighting
