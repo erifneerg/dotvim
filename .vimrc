@@ -17,7 +17,6 @@ set linebreak
 set number
 set ruler
 set t_Co=256
-set noswapfile"disables swap files
 
 """""""""""""""""""
 " Colors and Fonts
@@ -33,21 +32,19 @@ elseif has('win32')
   set guifont=Courier\ New:h18
 endif
 
-colorscheme smyck
+" Solarize
+""""""""""""""
+let g:solarized_termcolors=256
+colorscheme solarized
+set background=light
+call togglebg#map("") 
 
-"" Solarize
-"""""""""""""""
-"let g:solarized_termcolors=256
-"colorscheme solarized
-"set background=light
-"call togglebg#map("") 
-"
-"
-"if has('gui_running')
-"    set guioptions=egmrt
-""else
-""    set background=dark
-"endif
+
+if has('gui_running')
+    set guioptions=egmrt
+"else
+"    set background=dark
+endif
 
 
 "snipMate setup because of pathegen
@@ -61,7 +58,7 @@ let g:snippets_dir = "~/.vim/bundle/snippets/snippets/"
 """"""""""""""
 set laststatus=2   " Always show the statusline
 "let g:Powerline_symbols = 'unicode'
-"let Powerline_symbols = 'unicode'
+let Powerline_symbols = 'unicode'
 
 """""""""""""""""
 "side boarders
@@ -97,9 +94,7 @@ set encoding=utf-8
 " Whitespace
 """"""""""""""
 
-" Special Character
-set list listchars=tab:\ \ ,trail:·,eol:¬,precedes:%
-
+set list listchars=tab:\ \ ,trail:·
 "recommend by drupal.org
 set expandtab
 set tabstop=2
@@ -108,11 +103,6 @@ set autoindent
 set smartindent
 "set display+=lastline
 
-"Indent Guide
-"
-"let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-set ts=2 sw=3 et
 """"""""""""""""""
 " Searching
 """""""""""""""""""
@@ -137,6 +127,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 "noremap   <Left>   <NOP>
 "noremap   <Right>  <NOP>
 
+"""""""""""""""""""""""""""""""""""""""""
 " Drupal module/etc syntax highlighting
 """""""""""""""""""""""""""""""""""""""""
 
@@ -149,30 +140,30 @@ if has("autocmd")
   augroup END
 endif
 
-" SASS syntax
-"""""""""""""
 
+""""""""""""""""""""""""""
+" NERDTree configuration
+""""""""""""""""""""""""""
+let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
+map <Leader>[ :NERDTreeToggle<CR>
 
-" SCSS syntax highlight
-"au BufRead,BufNewFile *.scss set filetype=scss
+" ZoomWin configuration
+"map <Leader><Leader> :ZoomWin<CR>
 
-
-
+""""""""""""
 " Snipmate
 """""""""""
 :filetype plugin on
 
-"ctrlP
-"""""""""""""
-let g:ctrlp_working_path_mode = 'rc'
+au BufRead,BufNewFile *.scss set filetype=scss
 
-
+""""""""""""
 "short cuts
 """"""""""""
 
 "ab rwhites %s/\s\+$//e
 
-
+"""""""""""""""""
 "markdown convert
 """""""""""""""""
 

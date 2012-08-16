@@ -46,12 +46,3 @@
 [submodule "bundle/tlib"]
 	path = bundle/tlib
 	url = https://github.com/tomtom/tlib_vim.git
-[submodule "bundle/scss-syntax"]
-	path = bundle/scss-syntax
-	url = git://github.com/cakebaker/scss-syntax.vim.git
-[submodule "bundle/haml-syntax"]
-	path = bundle/haml-syntax
-	url = git://github.com/tpope/vim-haml.git
-[submodule "bundle/indent-guides"]
-	path = bundle/indent-guides
-	url = git://github.com/nathanaelkane/vim-indent-guides.git
