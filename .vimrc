@@ -10,16 +10,13 @@ filetype plugin indent on
 """""""""""""
 "set to vim not vi
 set nocompatible
+"said to help with osx clipboard fun stuff
+set clipboard=unnamed
 set wrap
 set linebreak
 set number
 set ruler
 set t_Co=256
-
-"said to help with osx clipboard fun stuff
-if $TMUX == ''
-  set clipboard+=unnamed
-endif
 
 """""""""""""""""""
 " Colors and Fonts
@@ -35,13 +32,13 @@ elseif has('win32')
   set guifont=Courier\ New:h18
 endif
 
-colorscheme smyck
-"" Solarize
-"""""""""""""""
-"let g:solarized_termcolors=256
-"colorscheme solarized
-"set background=light
-""call togglebg#map("") 
+" Solarize
+""""""""""""""
+let g:solarized_termcolors=256
+colorscheme solarized
+set background=light
+call togglebg#map("") 
+
 
 if has('gui_running')
     set guioptions=egmrt
@@ -61,7 +58,7 @@ let g:snippets_dir = "~/.vim/bundle/snippets/snippets/"
 """"""""""""""
 set laststatus=2   " Always show the statusline
 "let g:Powerline_symbols = 'unicode'
-"let Powerline_symbols = 'unicode'
+let Powerline_symbols = 'unicode'
 
 """""""""""""""""
 "side boarders
@@ -118,7 +115,7 @@ set smartcase
 " Tab completion
 """""""""""""""""
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,.DS_Store,*/.sass-cache/*,.swp,
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 "" Disable Arrows
 "inoremap  <Up>     <NOP>
@@ -144,12 +141,21 @@ if has("autocmd")
 endif
 
 
-au BufRead,BufNewFile *.scss set filetype=scss
+""""""""""""""""""""""""""
+" NERDTree configuration
+""""""""""""""""""""""""""
+let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
+map <Leader>[ :NERDTreeToggle<CR>
 
-"ctrlP
-"
-let g:ctrlp_working_path_mode = 'rc'
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.sass-cache$\'
+" ZoomWin configuration
+"map <Leader><Leader> :ZoomWin<CR>
+
+""""""""""""
+" Snipmate
+"""""""""""
+:filetype plugin on
+
+au BufRead,BufNewFile *.scss set filetype=scss
 
 """"""""""""
 "short cuts
