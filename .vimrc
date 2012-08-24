@@ -2,19 +2,35 @@
 "pathogen setup
 """"""""""""""
 syntax on
+set nocompatible
 filetype off
 call pathogen#runtime_append_all_bundles()
+
+set rtp+=~/.vim/bundle/vundle/
+ call vundle#rc()
+
+ " let Vundle manage Vundle
+ " required! 
+ Bundle 'gmarik/vundle'
+
+
+ "addon
+ "
+Bundle 'spolu/dwm.vim'
+
 filetype plugin indent on
 
 "basic setup
 """""""""""""
 "set to vim not vi
-set nocompatible
 set wrap
 set linebreak
 set number
 set ruler
 set t_Co=256
+
+set ttymouse=xterm2
+set mouse=n
 
 "said to help with osx clipboard fun stuff
 if $TMUX == ''
