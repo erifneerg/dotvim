@@ -172,7 +172,6 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.sass-cache$\'
 """"""""""""
 
 "ab rwhites %s/\s\+$//e
-cmap w!! %!sudo tee > /dev/null %
 
 """""""""""""""""
 "markdown convert
