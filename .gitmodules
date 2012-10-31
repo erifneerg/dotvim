@@ -18,7 +18,7 @@
 	url = git://github.com/garbas/vim-snipmate.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
-	url = git://github.com/ervandew/supertab.git
+	url = https://github.com/ervandew/supertab.git
 [submodule "bundle/vimroom"]
 	path = bundle/vimroom
 	url = git://github.com/mikewest/vimroom.git
@@ -46,6 +46,3 @@
 [submodule "bundle/haml"]
 	path = bundle/haml
 	url = git://github.com/tpope/vim-haml.git
-[submodule "bundle/vundle"]
-	path = bundle/vundle
-	url = git://github.com/gmarik/vundle.git
