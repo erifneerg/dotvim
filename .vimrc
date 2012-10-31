@@ -4,19 +4,47 @@
 syntax on
 set nocompatible
 filetype off
-call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles()
 
 set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
 
- " let Vundle manage Vundle
- " required! 
- Bundle 'gmarik/vundle'
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+"vim addon
 
+"Colors
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'spwhitt/Smyck-Color-Scheme'
 
- "addon
- "
+"Syntax
+Bundle 'tpope/vim-haml'
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'tpope/vim-markdown'
+
+"interface
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'spolu/dwm.vim'
+
+"Search
+Bundle 'kien/ctrlp.vim'
+
+"tab
+"Bundle 'ervandew/supertab'
+"Bundle 'garbas/vim-snipmate'
+"Bundle 'honza/snipmate-snippets'
+Bundle 'SirVer/ultisnips'
+"Bundle 'vim-scripts/AutoComplPop'
+
+"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-surround'
+Bundle 'mikewest/vimroom'
 
 filetype plugin indent on
 
@@ -51,19 +79,20 @@ elseif has('win32')
   set guifont=Courier\ New:h18
 endif
 
-colorscheme smyck
+"colorscheme smyck
+colorscheme jellybeans
 "" Solarize
 """""""""""""""
 "let g:solarized_termcolors=256
 "colorscheme solarized
 "set background=light
 ""call togglebg#map("") 
-
-if has('gui_running')
-    set guioptions=egmrt
-"else
-"    set background=dark
-endif
+"
+"if has('gui_running')
+"    set guioptions=egmrt
+""else
+""    set background=dark
+"endif
 
 
 "snipMate setup because of pathegen
@@ -179,5 +208,8 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.sass-cache$\'
 
 ab m2h :%! /usr/local/bin/Markdown.pl --html4tags <cr>
 
-set nolist
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+set nolist
