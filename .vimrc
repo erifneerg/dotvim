@@ -18,23 +18,24 @@ Bundle 'amdt/sunset'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'hail2u/vim-css3-syntax'
-"Bundle 'othree/html5.vim'
-"Bundle 'technosophos/drupal-snippets'
-"Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'othree/html5.vim'
+Bundle 'technosophos/drupal-snippets'
+Bundle 'cakebaker/scss-syntax.vim'
 
 "interface
-"Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/vim-powerline'
 "Bundle 'spolu/dwm.vim'
 
 "Search
-"Bundle 'kien/ctrlp.vim'
+Bundle 'kien/ctrlp.vim'
 
 "Movement
 Bundle 'garbas/vim-snipmate'
-"Bundle 'lammermann/AutoComplPop'
-"Bundle 'scrooloose/syntastic'
-"Bundle 'tpope/vim-surround'
-"Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'lammermann/AutoComplPop'
+Bundle 'ervandew/supertab'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-surround'
+Bundle 'nathanaelkane/vim-indent-guides'
 
 "vim addon
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -178,9 +179,6 @@ endif
 
 
 au BufRead,BufNewFile *.scss set filetype=scss
-
-" Treat <li> and <p> tags like the block tags they are
-let g:html_indent_tags = 'li\|p'
 
 "ctrlP
 "
