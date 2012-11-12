@@ -1,6 +1,3 @@
-""""""""""""""
-"pathogen setup
-""""""""""""""
 syntax on
 set nocompatible
 filetype off
@@ -8,13 +5,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
 
-" let Vundle manage Vundle
 Bundle 'gmarik/vundle'
-"vim addon
-
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
 
 "Colors
 Bundle 'altercation/vim-colors-solarized'
@@ -25,28 +16,34 @@ Bundle 'amdt/sunset'
 
 "Syntax
 Bundle 'tpope/vim-haml'
-"Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tpope/vim-markdown'
-"Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
+"Bundle 'othree/html5.vim'
+"Bundle 'technosophos/drupal-snippets'
+"Bundle 'cakebaker/scss-syntax.vim'
 
 "interface
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
 "Bundle 'spolu/dwm.vim'
 
 "Search
-Bundle 'kien/ctrlp.vim'
+"Bundle 'kien/ctrlp.vim'
 
-"tab
-"Bundle 'ervandew/supertab'
+"Movement
 Bundle 'garbas/vim-snipmate'
+"Bundle 'lammermann/AutoComplPop'
+"Bundle 'scrooloose/syntastic'
+"Bundle 'tpope/vim-surround'
+"Bundle 'nathanaelkane/vim-indent-guides'
 
-Bundle 'nathanaelkane/vim-indent-guides'
+"vim addon
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'honza/snipmate-snippets'
 
-Bundle 'scrooloose/syntastic'
+"Git
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-surround'
 
 
 filetype on
@@ -61,8 +58,8 @@ set number
 set ruler
 set t_Co=256
 
-set ttymouse=xterm2
-set mouse=n
+"set ttymouse=xterm2
+"set mouse=n
 
 "said to help with osx clipboard fun stuff
 if $TMUX == ''
@@ -85,7 +82,7 @@ endif
 
 "colorscheme smyck
 colorscheme jellybeans
-colorscheme hemisu 
+"colorscheme hemisu 
 "" Solarize
 """""""""""""""
 "let g:solarized_termcolors=256
@@ -99,14 +96,6 @@ colorscheme hemisu
 ""    set background=dark
 "endif
 
-
-"snipMate setup because of pathegen
-""""""""""""""
-let g:snippets_dir = "~/.vim/bundle/snippets/snippets/"
-"let g:snippets_dir = "~/.vim/snippets"
-
-
-""""""""""""""
 "Powerline
 """"""""""""""
 set laststatus=2   " Always show the statusline
@@ -118,14 +107,6 @@ set laststatus=2   " Always show the statusline
 """""""""""""""""
 set foldcolumn=0
 
-"if exists('+colorcolumn')
-"  set colorcolumn=80
-"else
-"  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-"endif
-
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
 
 """""""""""""""""
 " Saving stuff
@@ -148,6 +129,7 @@ set encoding=utf-8
 """"""""""""""
 
 set list listchars=tab:\ \ ,trail:·
+
 "recommend by drupal.org
 set expandtab
 set tabstop=2
@@ -163,13 +145,13 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-nnoremap <F3> :set hlsearch!<CR>
+"nnoremap <F3> :set hlsearch!<CR>
 
 """""""""""""""""
 " Tab completion
 """""""""""""""""
 "set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,.DS_Store,*/.sass-cache/*,.swp,
+"set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,.DS_Store,*/.sass-cache/*,.swp,
 
 "" Disable Arrows
 "inoremap  <Up>     <NOP>
@@ -205,71 +187,6 @@ let g:html_indent_tags = 'li\|p'
 let g:ctrlp_working_path_mode = 'rc'
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.sass-cache$\'
 
-"" NeocompleCache
-"""""""""""""""""
-"" Disable AutoComplPop.
-"let g:acp_enableAtStartup = 0
-"" Use neocomplcache.
-"let g:neocomplcache_enable_at_startup = 1
-"" Use smartcase.
-"let g:neocomplcache_enable_smart_case = 1
-"let g:neocomplcache_enable_at_startup = 1
-"" Use camel case completion.
-"let g:neocomplcache_enable_camel_case_completion = 1
-"" Use underbar completion.
-"let g:neocomplcache_enable_underbar_completion = 1
-"
-"" Define dictionary.
-"let g:neocomplcache_dictionary_filetype_lists = {
-"    \ 'default' : '',
-"    \ 'vimshell' : $HOME.'/.vimshell_hist',
-"    \ 'scheme' : $HOME.'/.gosh_completions'
-"    \ }
-"
-"" Define keyword.
-"if !exists('g:neocomplcache_keyword_patterns')
-"  let g:neocomplcache_keyword_patterns = {}
-"endif
-"let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-"
-"" SuperTab like snippets behavior.
-"inoremap <expr><TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : "\<C-x>\<C-u>"
-"
-"" Plugin key-mappings.
-"imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-"smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-"inoremap <expr><C-g>     neocomplcache#undo_completion()
-"inoremap <expr><C-l>     neocomplcache#complete_common_string()
-"        
-"" Recommended key-mappings.
-"" <CR>: close popup and save indent.
-"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-"
-"" <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"" <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-y>  neocomplcache#close_popup()
-"inoremap <expr><C-e>  neocomplcache#cancel_popup()
-"" Enable omni completion.
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-"" Enable heavy omni completion.
-"if !exists('g:neocomplcache_omni_patterns')
-"  let g:neocomplcache_omni_patterns = {}
-"endif
-"let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-""autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-"let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-"let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-
-""""""""""""
 "short cuts
 """"""""""""
 
