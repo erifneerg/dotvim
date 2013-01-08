@@ -24,7 +24,7 @@ Bundle 'cakebaker/scss-syntax.vim'
 
 "interface
 Bundle 'Lokaltog/vim-powerline'
-"Bundle 'spolu/dwm.vim'
+Bundle 'majutsushi/tagbar'
 
 "Search
 Bundle 'kien/ctrlp.vim'
@@ -45,33 +45,31 @@ Bundle 'honza/snipmate-snippets'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 
-
 filetype on
 filetype plugin indent on
+
+if &term 
+  Bundle 'spolu/dwm.vim'
+  set ttymouse=xterm2
+  set mouse=n
+endif
 
 "basic setup
 """""""""""""
 "set to vim not vi
 set wrap
 set linebreak
-set number
 set ruler
 set t_Co=256
 set relativenumber
 set undofile
 
-"set ttymouse=xterm2
-"set mouse=n
 
 "said to help with osx clipboard fun stuff
-if $TMUX == ''
-  set clipboard+=unnamed
-endif
+set clipboard+=unnamed
 
-"""""""""""""""""""
 " Colors and Fonts
 """""""""""""""""""
-
 " OS picking
 """""""""""""""""
 if has('macunix')
@@ -83,25 +81,10 @@ elseif has('win32')
 endif
 
 colorscheme smyck
-"colorscheme jellybeans
-"colorscheme hemisu 
-"" Solarize
-"""""""""""""""
-"let g:solarized_termcolors=256
-"colorscheme solarized
-"set background=light
-"
-"if has('gui_running')
-"    set guioptions=egmrt
-""else
-""    set background=dark
-"endif
 
 "Powerline
 """"""""""""""
 set laststatus=2   " Always show the statusline
-"let g:Powerline_symbols = 'unicode'
-"let Powerline_symbols = 'unicode'
 
 "side boarders
 """"""""""""""
@@ -140,9 +123,18 @@ nnoremap <F3> :noh<cr>
 
 " Tab completion
 """""""""""""""""
-nnoremap <tab> %
-vnoremap <tab> %
+"nnoremap <tab> %
+"vnoremap <tab> %
 
+"autocomplte
+""""""""""""
+inoremap <leader>, <C-x><C-o>
+inoremap <leader>: <C-x><C-f>
+inoremap <leader>= <C-x><C-l>
+"set ofu=syntaxcomplete#Complete
+"set completeopt=menuone
+
+inoremap <leader>/ :register<CR>
 " Drupal module/etc syntax highlighting
 """""""""""""""""""""""""""""""""""""""
 if has("autocmd")
@@ -154,7 +146,8 @@ if has("autocmd")
   augroup END
 endif
 
-
+" SASS and Compass setup
+""""""""""""""""""""""""
 au BufRead,BufNewFile *.scss set filetype=scss
 
 "ctrlP
@@ -166,24 +159,16 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.sass-cache$\'
 """""""""""
 ab m2h :%! /usr/local/bin/Markdown.pl --html4tags <cr> "markdown convert
 
-"autocomplte
-""""""""""""
-inoremap <leader>, <C-x><C-o>
-inoremap <leader>: <C-x><C-f>
-inoremap <leader>= <C-x><C-l>
-
-set ofu=syntaxcomplete#Complete
-"set omnifunc=csscomplete#CompleteCSS
-
-set completeopt=menuone
-
+" For writing my words
+""""""""""""""""""""""
 func! WordProcessorMode() 
   setlocal formatoptions=1 
   setlocal noexpandtab 
+  set norelativenumber 
   map j gj 
   map k gk
   setlocal spell spelllang=en_us 
-  set thesaurus+=/Users/sbrown/.vim/thesaurus/mthesaur.txt
+" set thesaurus+=/Users/sbrown/.vim/thesaurus/mthesaur.txt
   set complete+=s
   set formatprg=par
   setlocal wrap 
@@ -192,11 +177,12 @@ endfu
 com! WP call WordProcessorMode()
 
 "reload vimrc
-augroup myvimrc
-    au!
-    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
+"augroup myvimrc
+"    au!
+"    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+"augroup END
 
+autocmd! bufwritepost .vimrc source ~/.vimrc
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 
