@@ -71,10 +71,10 @@ set clipboard+=unnamed
 
 " Colors and Fonts
 """"""""""""""""""
-"colorscheme smyck
+colorscheme smyck
 "colorscheme jellybeans 
-let g:solarized_termcolors=256
-colorscheme solarized
+"let g:solarized_termcolors=256
+"colorscheme solarized
 
 "Powerline
 """"""""""""""
