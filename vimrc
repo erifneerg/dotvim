@@ -75,10 +75,6 @@ set clipboard+=unnamed
 "colorscheme jellybeans 
 let g:solarized_termcolors=256
 colorscheme solarized
-call togglebg#map("<F5>")
-
-set guifont=Courier\ New:h16
-set guifont=Source\ Code\ Pro:h16
 
 "Powerline
 """"""""""""""
