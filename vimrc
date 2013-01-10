@@ -28,10 +28,11 @@ Bundle 'majutsushi/tagbar'
 
 "Search
 Bundle 'kien/ctrlp.vim'
+"and 'burke/matcher'
 
 "Movement
 Bundle 'garbas/vim-snipmate'
-Bundle 'lammermann/AutoComplPop'
+Bundle 'lammerman/AutoComplPop'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -69,18 +70,12 @@ set undofile
 set clipboard+=unnamed
 
 " Colors and Fonts
-"""""""""""""""""""
-" OS picking
-"""""""""""""""""
-if has('macunix')
-  set guifont=DejaVu\ Sans\ Mono:h18
-elseif has('unix')
-  set guifont=DejaVu\ Sans\ Mono:h18
-elseif has('win32')
-  set guifont=Courier\ New:h18
-endif
-
-colorscheme smyck
+""""""""""""""""""
+"colorscheme smyck
+"colorscheme jellybeans 
+let g:solarized_termcolors=256
+colorscheme solarized
+call togglebg#map("<F5>")
 
 "Powerline
 """"""""""""""
@@ -128,12 +123,6 @@ nnoremap <F3> :noh<cr>
 
 "autocomplte
 """"""""""""
-inoremap <leader>, <C-x><C-o>
-inoremap <leader>: <C-x><C-f>
-inoremap <leader>= <C-x><C-l>
-"set ofu=syntaxcomplete#Complete
-"set completeopt=menuone
-
 inoremap <leader>/ :register<CR>
 " Drupal module/etc syntax highlighting
 """""""""""""""""""""""""""""""""""""""
@@ -152,8 +141,9 @@ au BufRead,BufNewFile *.scss set filetype=scss
 
 "ctrlP
 """"""
-let g:ctrlp_working_path_mode = 'rc'
+let g:ctrlp_working_path_mode = 'c'
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.sass-cache$\'
+
 
 "short cuts
 """""""""""
@@ -168,7 +158,6 @@ func! WordProcessorMode()
   map j gj 
   map k gk
   setlocal spell spelllang=en_us 
-" set thesaurus+=/Users/sbrown/.vim/thesaurus/mthesaur.txt
   set complete+=s
   set formatprg=par
   setlocal wrap 
@@ -176,10 +165,25 @@ func! WordProcessorMode()
 endfu 
 com! WP call WordProcessorMode()
 
+func! DevMode() 
+  unmap j
+  unmap k
+  set ruler
+  set relativenumber
+endfu
+com! DEV call DevMode()
 "reload vimrc
+"augroup vimrcs
+"  au!
+"  au bufwritepost ~/.vimrc 
+"    \ source ~/.vimrc |
+"    \ if exists('g:Powerline_loaded') |
+"      \ silent! call Pl#Load() |
+"    \ endif 
+"augroup END
 "augroup myvimrc
 "    au!
-"    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+"    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc source $MYVIMRC
 "augroup END
 
 autocmd! bufwritepost .vimrc source ~/.vimrc
