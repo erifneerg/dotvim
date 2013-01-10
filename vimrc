@@ -46,14 +46,14 @@ Bundle 'honza/snipmate-snippets'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 
+  Bundle 'spolu/dwm.vim'
+
 filetype on
 filetype plugin indent on
 
-if &term 
-  Bundle 'spolu/dwm.vim'
-  set ttymouse=xterm2
-  set mouse=n
-endif
+"mose movement test
+"set ttymouse=xterm2
+"set mouse=a
 
 "basic setup
 """""""""""""
@@ -76,6 +76,9 @@ set clipboard+=unnamed
 let g:solarized_termcolors=256
 colorscheme solarized
 call togglebg#map("<F5>")
+
+set guifont=Courier\ New:h16
+set guifont=Source\ Code\ Pro:h16
 
 "Powerline
 """"""""""""""
@@ -172,21 +175,17 @@ func! DevMode()
   set relativenumber
 endfu
 com! DEV call DevMode()
-"reload vimrc
-"augroup vimrcs
-"  au!
-"  au bufwritepost ~/.vimrc 
-"    \ source ~/.vimrc |
-"    \ if exists('g:Powerline_loaded') |
-"      \ silent! call Pl#Load() |
-"    \ endif 
-"augroup END
-"augroup myvimrc
-"    au!
-"    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc source $MYVIMRC
-"augroup END
 
-autocmd! bufwritepost .vimrc source ~/.vimrc
+"reload vimrc
+augroup vimrcs
+  au!
+  au bufwritepost ~/.vimrc 
+    \ source ~/.vimrc |
+    \ if exists('g:Powerline_loaded') |
+      \ silent! call Pl#Load() |
+    \ endif 
+augroup END
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 
