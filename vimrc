@@ -1,4 +1,3 @@
-syntax on
 set nocompatible
 filetype off
 
@@ -7,6 +6,7 @@ set rtp+=~/.vim/bundle/vundle/
 
 Bundle 'gmarik/vundle'
 
+Bundle 'tpope/vim-sensible'
 "Colors
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'noahfrederick/Hemisu' 
@@ -60,10 +60,8 @@ filetype plugin indent on
 "set to vim not vi
 set wrap
 set linebreak
-set ruler
 set t_Co=256
 set relativenumber
-set undofile
 
 
 "said to help with osx clipboard fun stuff
@@ -78,7 +76,6 @@ colorscheme smyck
 
 "Powerline
 """"""""""""""
-set laststatus=2   " Always show the statusline
 
 "side boarders
 """"""""""""""
@@ -103,8 +100,6 @@ set list listchars=tab:\ \ ,trail:·
 set expandtab
 set tabstop=2
 set shiftwidth=2
-set autoindent
-set smartindent
 "set display+=lastline
 
 " Searching
