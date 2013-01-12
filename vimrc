@@ -46,14 +46,13 @@ Bundle 'honza/snipmate-snippets'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 
-  Bundle 'spolu/dwm.vim'
+Bundle 'spolu/dwm.vim'
 
-filetype on
 filetype plugin indent on
 
 "mose movement test
-"set ttymouse=xterm2
-"set mouse=a
+set ttymouse=xterm2
+set mouse=a
 
 "basic setup
 """""""""""""
@@ -84,7 +83,6 @@ set foldcolumn=0
 " Saving stuff
 """"""""""""""
 set ffs=unix,dos,mac " Default file types
-set encoding=utf-8   " Set encoding
 au FocusLost * :wa   " Save when focus lost
 "set lang
 try
@@ -105,19 +103,9 @@ set shiftwidth=2
 " Searching
 """""""""""
 set hlsearch
-set incsearch
 set ignorecase
-set smartcase
 nnoremap <F3> :noh<cr>
 
-" Tab completion
-"""""""""""""""""
-"nnoremap <tab> %
-"vnoremap <tab> %
-
-"autocomplte
-""""""""""""
-inoremap <leader>/ :register<CR>
 " Drupal module/etc syntax highlighting
 """""""""""""""""""""""""""""""""""""""
 if has("autocmd")
