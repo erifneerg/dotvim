@@ -12,7 +12,6 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'noahfrederick/Hemisu' 
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'spwhitt/Smyck-Color-Scheme'
-"Bundle 'amdt/sunset' 
 
 "Syntax
 Bundle 'tpope/vim-haml'
@@ -68,17 +67,11 @@ set clipboard+=unnamed
 
 " Colors and Fonts
 """"""""""""""""""
-colorscheme smyck
+"colorscheme smyck
 "colorscheme jellybeans 
-"let g:solarized_termcolors=256
-"colorscheme solarized
-
-"Powerline
-""""""""""""""
-
-"side boarders
-""""""""""""""
-set foldcolumn=0
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 
 " Saving stuff
 """"""""""""""
@@ -154,6 +147,15 @@ func! DevMode()
   set relativenumber
 endfu
 com! DEV call DevMode()
+
+function! ToggleNuMode() 
+  if(&rnu == 1) 
+    set nu 
+  else 
+    set rnu 
+  endif 
+endfunc 
+nnoremap <Leader>n :call ToggleNuMode()<CR>
 
 "reload vimrc
 augroup vimrcs
