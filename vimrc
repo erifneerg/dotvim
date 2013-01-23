@@ -12,6 +12,9 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'noahfrederick/Hemisu' 
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'spwhitt/Smyck-Color-Scheme'
+Bundle 'Lokaltog/vim-distinguished'
+Bundle 'vim-scripts/twilight256.vim'  
+"Bundle 'godlygeek/csapprox'
 
 "Syntax
 Bundle 'tpope/vim-haml'
@@ -55,23 +58,54 @@ set mouse=a
 
 "basic setup
 """""""""""""
-"set to vim not vi
 set wrap
 set linebreak
 set t_Co=256
 set relativenumber
 
-
-"said to help with osx clipboard fun stuff
-set clipboard+=unnamed
-
 " Colors and Fonts
 """"""""""""""""""
-"colorscheme smyck
+"colorscheme twilight256
+colorscheme smyck
 "colorscheme jellybeans 
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+"set background=dark
+"let g:solarized_termcolors=256
+"colorscheme solarized
+
+"Current Line highlighting
+"set cursorline
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
+"Keep Highligh only in current window
+"augroup CursorLine
+"  au!
+"  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+"  au WinLeave * setlocal nocursorline
+"augroup END
+
+
+function! ToggleNuMode() 
+  if(&rnu == 1) 
+    set nu 
+  else 
+    set rnu 
+  endif 
+endfunc 
+nnoremap <Leader>n :call ToggleNuMode()<CR>
+
+" Whitespace
+""""""""""""
+"set list listchars=tab:\ \ ,trail:·
+
+" said to help with osx clipboard fun stuff
+set clipboard+=unnamed
+
+"recommend by drupal.org
+set expandtab
+set tabstop=2
+set shiftwidth=2
+"set display+=lastline
+
 
 " Saving stuff
 """"""""""""""
@@ -82,22 +116,6 @@ try
     lang en_US
 catch
 endtry
-
-" Whitespace
-""""""""""""
-set list listchars=tab:\ \ ,trail:·
-
-"recommend by drupal.org
-set expandtab
-set tabstop=2
-set shiftwidth=2
-"set display+=lastline
-
-" Searching
-"""""""""""
-set hlsearch
-set ignorecase
-nnoremap <F3> :noh<cr>
 
 " Drupal module/etc syntax highlighting
 """""""""""""""""""""""""""""""""""""""
@@ -140,6 +158,14 @@ func! WordProcessorMode()
 endfu 
 com! WP call WordProcessorMode()
 
+func! DropBoxNoteSetup()
+  "set working path
+  "set to WP
+  "new files
+  "set syntax to markdown
+endfu
+com! NOTE call DropBoxNoteSetup()
+
 func! DevMode() 
   unmap j
   unmap k
@@ -147,15 +173,6 @@ func! DevMode()
   set relativenumber
 endfu
 com! DEV call DevMode()
-
-function! ToggleNuMode() 
-  if(&rnu == 1) 
-    set nu 
-  else 
-    set rnu 
-  endif 
-endfunc 
-nnoremap <Leader>n :call ToggleNuMode()<CR>
 
 "reload vimrc
 augroup vimrcs
