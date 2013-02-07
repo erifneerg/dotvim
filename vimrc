@@ -27,6 +27,7 @@ Bundle 'cakebaker/scss-syntax.vim'
 "interface
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
+Bundle 'scrooloose/nerdtree'
 
 "Search
 Bundle 'kien/ctrlp.vim'
@@ -137,13 +138,15 @@ au BufRead,BufNewFile *.scss set filetype=scss
 let g:ctrlp_working_path_mode = 'c'
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.sass-cache$\'
 
-
+"search clear
+nnoremap <F3> :set hlsearch!<CR>
 "short cuts
 """""""""""
 ab m2h :%! /usr/local/bin/Markdown.pl --html4tags <cr> "markdown convert
-
+"nerdtree
+nnoremap <Leader>t :NERDTreeToggle<cr>
 " For writing my words
-""""""""""""""""""""""
+"""""""""""""""""""""" 
 func! WordProcessorMode() 
   setlocal formatoptions=1 
   setlocal noexpandtab 
