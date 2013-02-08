@@ -7,6 +7,7 @@ set rtp+=~/.vim/bundle/vundle/
 Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-sensible'
+
 "Colors
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'noahfrederick/Hemisu' 
@@ -14,12 +15,14 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'spwhitt/Smyck-Color-Scheme'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'vim-scripts/twilight256.vim'  
+Bundle 'tpope/vim-vividchalk'
 "Bundle 'godlygeek/csapprox'
 
 "Syntax
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
-Bundle 'hail2u/vim-css3-syntax'
+"Bundle 'hail2u/vim-css3-syntax'
+Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'othree/html5.vim'
 Bundle 'technosophos/drupal-snippets'
 Bundle 'cakebaker/scss-syntax.vim'
@@ -33,11 +36,13 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 "and 'burke/matcher'
 
-"Movement
+"Auto typing
 Bundle 'garbas/vim-snipmate'
 Bundle 'lammerman/AutoComplPop'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
+"Movement
+Bundle 'tpope/vim-unimpaired'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 "vim addon
@@ -64,14 +69,22 @@ set linebreak
 set t_Co=256
 set relativenumber
 
+"Break the habit
+""""""""""""""""
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 " Colors and Fonts
 """"""""""""""""""
 "colorscheme twilight256
 colorscheme smyck
 "colorscheme jellybeans 
-"set background=dark
 "let g:solarized_termcolors=256
 "colorscheme solarized
+
+"set background=dark
 
 "Current Line highlighting
 "set cursorline
