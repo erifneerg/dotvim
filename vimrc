@@ -16,6 +16,7 @@ Bundle 'spwhitt/Smyck-Color-Scheme'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'vim-scripts/twilight256.vim'  
 Bundle 'tpope/vim-vividchalk'
+Bundle 'sickill/vim-monokai'
 "Bundle 'godlygeek/csapprox'
 
 "Syntax
@@ -38,17 +39,19 @@ Bundle 'kien/ctrlp.vim'
 
 "Auto typing
 Bundle 'garbas/vim-snipmate'
-Bundle 'lammerman/AutoComplPop'
-Bundle 'scrooloose/syntastic'
+Bundle 'AutoComplPop'
+"Bundle 'SirVer/ultisnips'
+"Bundle 'ervandew/supertab'
+Bundle 'honza/snipmate-snippets'
 Bundle 'tpope/vim-surround'
 "Movement
-Bundle 'tpope/vim-unimpaired'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'tpope/vim-unimpaired'
 
 "vim addon
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'honza/snipmate-snippets'
+Bundle 'scrooloose/syntastic'
 
 "Git
 Bundle 'tpope/vim-fugitive'
@@ -57,6 +60,8 @@ Bundle 'tpope/vim-git'
 Bundle 'spolu/dwm.vim'
 
 filetype plugin indent on
+
+let g:netrw_home=$HOME . '/.hide'
 
 "mose movement test
 set ttymouse=xterm2
@@ -68,6 +73,7 @@ set wrap
 set linebreak
 set t_Co=256
 set relativenumber
+set list
 
 "Break the habit
 """"""""""""""""
@@ -79,7 +85,8 @@ noremap <Right> <NOP>
 " Colors and Fonts
 """"""""""""""""""
 "colorscheme twilight256
-colorscheme smyck
+"colorscheme smyck
+colorscheme monokai
 "colorscheme jellybeans 
 "let g:solarized_termcolors=256
 "colorscheme solarized
@@ -98,13 +105,13 @@ nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 "augroup END
 
 
-function! ToggleNuMode() 
-  if(&rnu == 1) 
-    set nu 
-  else 
-    set rnu 
-  endif 
-endfunc 
+function! ToggleNuMode()
+  if(&rnu == 1)
+    set nu
+  else
+    set rnu
+  endif
+endfunc
 nnoremap <Leader>n :call ToggleNuMode()<CR>
 
 " Whitespace
@@ -159,19 +166,19 @@ ab m2h :%! /usr/local/bin/Markdown.pl --html4tags <cr> "markdown convert
 "nerdtree
 nnoremap <Leader>t :NERDTreeToggle<cr>
 " For writing my words
-"""""""""""""""""""""" 
-func! WordProcessorMode() 
-  setlocal formatoptions=1 
-  setlocal noexpandtab 
-  set norelativenumber 
-  map j gj 
+""""""""""""""""""""""
+func! WordProcessorMode()
+  setlocal formatoptions=1
+  setlocal noexpandtab
+  set norelativenumber
+  map j gj
   map k gk
-  setlocal spell spelllang=en_us 
+  setlocal spell spelllang=en_us
   set complete+=s
   set formatprg=par
-  setlocal wrap 
-  setlocal linebreak 
-endfu 
+  setlocal wrap
+  setlocal linebreak
+endfu
 com! WP call WordProcessorMode()
 
 func! DropBoxNoteSetup()
@@ -182,7 +189,7 @@ func! DropBoxNoteSetup()
 endfu
 com! NOTE call DropBoxNoteSetup()
 
-func! DevMode() 
+func! DevMode()
   unmap j
   unmap k
   set ruler
@@ -193,11 +200,11 @@ com! DEV call DevMode()
 "reload vimrc
 augroup vimrcs
   au!
-  au bufwritepost ~/.vimrc 
+  au bufwritepost ~/.vimrc
     \ source ~/.vimrc |
     \ if exists('g:Powerline_loaded') |
       \ silent! call Pl#Load() |
-    \ endif 
+    \ endif
 augroup END
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
