@@ -17,16 +17,15 @@ Bundle 'Lokaltog/vim-distinguished'
 Bundle 'vim-scripts/twilight256.vim'  
 Bundle 'tpope/vim-vividchalk'
 Bundle 'sickill/vim-monokai'
-"Bundle 'godlygeek/csapprox'
 
 "Syntax
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
-"Bundle 'hail2u/vim-css3-syntax'
-Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+"Bundle 'ap/vim-css-color'
 Bundle 'othree/html5.vim'
 Bundle 'technosophos/drupal-snippets'
 Bundle 'cakebaker/scss-syntax.vim'
+"Bundle 'plasticboy/vim-markdown'
 
 "interface
 Bundle 'Lokaltog/vim-powerline'
@@ -35,19 +34,18 @@ Bundle 'scrooloose/nerdtree'
 
 "Search
 Bundle 'kien/ctrlp.vim'
-"and 'burke/matcher'
 
 "Auto typing
 Bundle 'garbas/vim-snipmate'
 Bundle 'AutoComplPop'
 "Bundle 'SirVer/ultisnips'
-"Bundle 'ervandew/supertab'
 Bundle 'honza/snipmate-snippets'
 Bundle 'tpope/vim-surround'
 "Movement
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-unimpaired'
-
+"Search
+Bundle 'mileszs/ack.vim'
 "vim addon
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
