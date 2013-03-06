@@ -12,11 +12,12 @@ Bundle 'tpope/vim-sensible'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'noahfrederick/Hemisu' 
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'spwhitt/Smyck-Color-Scheme'
+Bundle 'tomelm/Smyck-Color-Scheme'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'vim-scripts/twilight256.vim'  
 Bundle 'tpope/vim-vividchalk'
 Bundle 'sickill/vim-monokai'
+Bundle 'nelstrom/vim-mac-classic-theme'
 
 "Syntax
 Bundle 'tpope/vim-haml'
@@ -30,17 +31,18 @@ Bundle 'cakebaker/scss-syntax.vim'
 "interface
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdtree'
+"Bundle 'scrooloose/nerdtree'
 
 "Search
 Bundle 'kien/ctrlp.vim'
 
 "Auto typing
 Bundle 'garbas/vim-snipmate'
-Bundle 'AutoComplPop'
-"Bundle 'SirVer/ultisnips'
 Bundle 'honza/snipmate-snippets'
+Bundle 'AutoComplPop'
 Bundle 'tpope/vim-surround'
+Bundle 'Townk/vim-autoclose'
+"Bundle 'SirVer/ultisnips'
 "Movement
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-unimpaired'
@@ -79,19 +81,24 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
+ 
 " Colors and Fonts
 """"""""""""""""""
 "colorscheme twilight256
 "colorscheme smyck
-colorscheme monokai
+colorscheme smyck256
 "colorscheme jellybeans 
+colorscheme monokai
+
 "let g:solarized_termcolors=256
 "colorscheme solarized
-
 "set background=dark
 
+"Light colorscheme
+"colorscheme mac_classic
+
 "Current Line highlighting
+""""""""""""""""""""""""""
 "set cursorline
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
