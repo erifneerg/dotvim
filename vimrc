@@ -31,6 +31,7 @@ Bundle 'cakebaker/scss-syntax.vim'
 "interface
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
+Bundle 'nathanaelkane/vim-indent-guides'
 "Bundle 'scrooloose/nerdtree'
 
 "Search
@@ -41,23 +42,22 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/snipmate-snippets'
 Bundle 'AutoComplPop'
 Bundle 'tpope/vim-surround'
-Bundle 'Townk/vim-autoclose'
+"Bundle 'Townk/vim-autoclose'
 "Bundle 'SirVer/ultisnips'
 "Movement
-Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-unimpaired'
 "Search
 Bundle 'mileszs/ack.vim'
+"error checking
+Bundle 'scrooloose/syntastic'
 "vim addon
+""""""""""
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'scrooloose/syntastic'
 
 "Git
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
-
-Bundle 'spolu/dwm.vim'
 
 filetype plugin indent on
 
@@ -86,29 +86,21 @@ noremap <Right> <NOP>
 """"""""""""""""""
 "colorscheme twilight256
 "colorscheme smyck
-colorscheme smyck256
+"colorscheme smyck256
 "colorscheme jellybeans 
-colorscheme monokai
+"colorscheme monokai
 
 "let g:solarized_termcolors=256
 "colorscheme solarized
 "set background=dark
 
 "Light colorscheme
-"colorscheme mac_classic
+colorscheme mac_classic
 
 "Current Line highlighting
 """"""""""""""""""""""""""
 "set cursorline
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-
-"Keep Highligh only in current window
-"augroup CursorLine
-"  au!
-"  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-"  au WinLeave * setlocal nocursorline
-"augroup END
-
 
 function! ToggleNuMode()
   if(&rnu == 1)
@@ -123,7 +115,7 @@ nnoremap <Leader>n :call ToggleNuMode()<CR>
 """"""""""""
 "set list listchars=tab:\ \ ,trail:·
 
-" said to help with osx clipboard fun stuff
+" help with osx clipboard fun stuff
 set clipboard+=unnamed
 
 "recommend by drupal.org
@@ -136,7 +128,6 @@ set shiftwidth=2
 " Saving stuff
 """"""""""""""
 set ffs=unix,dos,mac " Default file types
-au FocusLost * :wa   " Save when focus lost
 "set lang
 try
     lang en_US
@@ -160,16 +151,29 @@ au BufRead,BufNewFile *.scss set filetype=scss
 
 "ctrlP
 """"""
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode =0
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.sass-cache$\'
 
 "search clear
 nnoremap <F3> :set hlsearch!<CR>
-"short cuts
-"""""""""""
-ab m2h :%! /usr/local/bin/Markdown.pl --html4tags <cr> "markdown convert
-"nerdtree
-nnoremap <Leader>t :NERDTreeToggle<cr>
+
+" Return a corresponding paren to be sent to the buffer
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! CloseParen()
+    let parenpairs = {'(' : ')',
+                   \  '[' : ']',
+                   \  '{' : '}'}
+
+    let [m_lnum, m_col] = searchpairpos('[[({]', '', '[\])}]', 'nbW')
+
+    if (m_lnum != 0) && (m_col != 0)
+        let c = getline(m_lnum)[m_col - 1]
+        return parenpairs[c]
+    endif
+    return ''
+endfun
+imap <C-e> <C-r>=CloseParen()<CR>
+
 " For writing my words
 """"""""""""""""""""""
 func! WordProcessorMode()
