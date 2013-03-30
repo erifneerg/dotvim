@@ -86,7 +86,7 @@ noremap <Right> <NOP>
 """"""""""""""""""
 "colorscheme twilight256
 "colorscheme smyck
-"colorscheme smyck256
+colorscheme smyck256
 "colorscheme jellybeans 
 "colorscheme monokai
 
@@ -95,7 +95,7 @@ noremap <Right> <NOP>
 "set background=dark
 
 "Light colorscheme
-colorscheme mac_classic
+"colorscheme mac_classic
 
 "Current Line highlighting
 """"""""""""""""""""""""""
