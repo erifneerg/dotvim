@@ -40,7 +40,7 @@ Bundle 'kien/ctrlp.vim'
 "Auto typing
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/snipmate-snippets'
-Bundle 'AutoComplPop'
+"Bundle 'AutoComplPop'
 Bundle 'tpope/vim-surround'
 "Bundle 'Townk/vim-autoclose'
 "Bundle 'SirVer/ultisnips'
