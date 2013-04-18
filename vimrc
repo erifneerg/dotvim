@@ -25,7 +25,7 @@ Bundle 'tpope/vim-markdown'
 "Bundle 'ap/vim-css-color'
 Bundle 'othree/html5.vim'
 Bundle 'technosophos/drupal-snippets'
-Bundle 'cakebaker/scss-syntax.vim'
+"Bundle 'cakebaker/scss-syntax.vim'
 "Bundle 'plasticboy/vim-markdown'
 
 "interface
@@ -111,13 +111,23 @@ function! ToggleNuMode()
 endfunc
 nnoremap <Leader>n :call ToggleNuMode()<CR>
 
+"Quick working path change
+""""""""""""""""""""""""""
+cnoremap %% <C-R>=expand('%:h').'/'<Cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+
 " Whitespace
 """"""""""""
 "set list listchars=tab:\ \ ,trail:·
 
 " help with osx clipboard fun stuff
-set clipboard+=unnamed
-
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
+    
 "recommend by drupal.org
 set expandtab
 set tabstop=2
