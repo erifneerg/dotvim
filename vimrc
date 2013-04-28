@@ -9,23 +9,15 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-sensible'
 
 "Colors
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'noahfrederick/Hemisu' 
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'tomelm/Smyck-Color-Scheme'
+Bundle 'slindberg/vim-colors-smyck'
 Bundle 'Lokaltog/vim-distinguished'
-Bundle 'vim-scripts/twilight256.vim'  
-Bundle 'tpope/vim-vividchalk'
 Bundle 'sickill/vim-monokai'
-Bundle 'nelstrom/vim-mac-classic-theme'
 
-"Syntax
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
-"Bundle 'ap/vim-css-color'
-Bundle 'othree/html5.vim'
-Bundle 'technosophos/drupal-snippets'
-"Bundle 'cakebaker/scss-syntax.vim'
+""Syntax
+"Bundle 'tpope/vim-haml'
+"Bundle 'tpope/vim-markdown'
+Bundle 'cakebaker/scss-syntax.vim'
 "Bundle 'plasticboy/vim-markdown'
 
 "interface
@@ -33,23 +25,35 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'nathanaelkane/vim-indent-guides'
 "Bundle 'scrooloose/nerdtree'
+"Bundle 'ap/vim-css-color'
 
 "Search
 Bundle 'kien/ctrlp.vim'
 
 "Auto typing
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/snipmate-snippets'
-"Bundle 'AutoComplPop'
 Bundle 'tpope/vim-surround'
-"Bundle 'Townk/vim-autoclose'
+Bundle 'Raimondi/delimitMate'
+
+Bundle 'garbas/vim-snipmate'
+Bundle 'AutoComplPop'
+"Bundle 'honza/vim-snippets'
+"Bundle 'ervandew/supertab'
+
+"Bundle 'Shougo/neocomplcache'
+"Bundle 'JazzCore/neocomplcache-ultisnips'
 "Bundle 'SirVer/ultisnips'
+
+"snippets
+Bundle 'technosophos/drupal-snippets'
+Bundle 'ronny/scss-snippets.vim'
+
+"error checking
+Bundle 'scrooloose/syntastic'
+
 "Movement
 Bundle 'tpope/vim-unimpaired'
 "Search
 Bundle 'mileszs/ack.vim'
-"error checking
-Bundle 'scrooloose/syntastic'
 "vim addon
 """"""""""
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -75,6 +79,17 @@ set t_Co=256
 set relativenumber
 set list
 
+" Saving stuff
+""""""""""""""
+set ffs=unix,dos,mac " Default file types
+set noswapfile
+au FocusLost * :wa
+"set lang
+try
+    lang en_US
+catch
+endtry
+
 "Break the habit
 """"""""""""""""
 noremap <Up> <NOP>
@@ -86,16 +101,12 @@ noremap <Right> <NOP>
 """"""""""""""""""
 "colorscheme twilight256
 "colorscheme smyck
-colorscheme smyck256
+"colorscheme smyck256
 "colorscheme jellybeans 
-"colorscheme monokai
-
-"let g:solarized_termcolors=256
-"colorscheme solarized
-"set background=dark
+colorscheme monokai
 
 "Light colorscheme
-"colorscheme mac_classic
+"colorscheme 
 
 "Current Line highlighting
 """"""""""""""""""""""""""
@@ -134,15 +145,6 @@ set tabstop=2
 set shiftwidth=2
 "set display+=lastline
 
-
-" Saving stuff
-""""""""""""""
-set ffs=unix,dos,mac " Default file types
-"set lang
-try
-    lang en_US
-catch
-endtry
 
 " Drupal module/etc syntax highlighting
 """""""""""""""""""""""""""""""""""""""
