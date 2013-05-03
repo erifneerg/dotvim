@@ -15,17 +15,14 @@ Bundle 'Lokaltog/vim-distinguished'
 Bundle 'sickill/vim-monokai'
 
 ""Syntax
-"Bundle 'tpope/vim-haml'
-"Bundle 'tpope/vim-markdown'
 Bundle 'cakebaker/scss-syntax.vim'
+"Bundle 'tpope/vim-markdown'
 "Bundle 'plasticboy/vim-markdown'
 
 "interface
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'nathanaelkane/vim-indent-guides'
-"Bundle 'scrooloose/nerdtree'
-"Bundle 'ap/vim-css-color'
 
 "Search
 Bundle 'kien/ctrlp.vim'
@@ -36,7 +33,7 @@ Bundle 'Raimondi/delimitMate'
 
 Bundle 'garbas/vim-snipmate'
 Bundle 'AutoComplPop'
-"Bundle 'honza/vim-snippets'
+Bundle 'honza/vim-snippets'
 "Bundle 'ervandew/supertab'
 
 "Bundle 'Shougo/neocomplcache'
@@ -135,16 +132,19 @@ map <leader>et :tabe %%
 "set list listchars=tab:\ \ ,trail:·
 
 " help with osx clipboard fun stuff
-if $TMUX == ''
-  set clipboard+=unnamed
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin"
+    set clipboard=unnamed
+  endif
 endif
     
 "recommend by drupal.org
 set expandtab
 set tabstop=2
 set shiftwidth=2
-"set display+=lastline
 
+set display+=lastline
 
 " Drupal module/etc syntax highlighting
 """""""""""""""""""""""""""""""""""""""
@@ -168,6 +168,9 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.sass-cache$\'
 
 "search clear
 nnoremap <F3> :set hlsearch!<CR>
+
+"balanace 
+let delimitMate_balance_matchpairs = 1
 
 " Return a corresponding paren to be sent to the buffer
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -203,10 +206,10 @@ endfu
 com! WP call WordProcessorMode()
 
 func! DropBoxNoteSetup()
+	exec enew
   "set working path
   "set to WP
-  "new files
-  "set syntax to markdown
+  set syntax=markdown
 endfu
 com! NOTE call DropBoxNoteSetup()
 
