@@ -13,31 +13,32 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'slindberg/vim-colors-smyck'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'sickill/vim-monokai'
-
+Bundle 'molok/vim-vombato-colorscheme'
+Bundle 'Blueshift'
+Bundle 'pyte'
 ""Syntax
-Bundle 'cakebaker/scss-syntax.vim'
-"Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-markdown'
 "Bundle 'plasticboy/vim-markdown'
+"Bundle 'cakebaker/scss-syntax.vim'
 
 "interface
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
+"Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'sjl/gundo.vim'
 
 "Search
-Bundle 'kien/ctrlp.vim'
+"Bundle 'kien/ctrlp.vim'
+Bundle 'Shougo/unite.vim'
 
 "Auto typing
 Bundle 'tpope/vim-surround'
 Bundle 'Raimondi/delimitMate'
 
-Bundle 'garbas/vim-snipmate'
-Bundle 'AutoComplPop'
+Bundle 'Shougo/neocomplete'
+Bundle 'Shougo/neosnippet'
 Bundle 'honza/vim-snippets'
-"Bundle 'ervandew/supertab'
-
-"Bundle 'Shougo/neocomplcache'
-"Bundle 'JazzCore/neocomplcache-ultisnips'
 "Bundle 'SirVer/ultisnips'
 
 "snippets
@@ -51,6 +52,11 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-unimpaired'
 "Search
 Bundle 'mileszs/ack.vim'
+"Note taking
+"
+Bundle 'xolox/vim-notes'
+Bundle 'xolox/vim-misc'
+
 "vim addon
 """"""""""
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -75,6 +81,8 @@ set linebreak
 set t_Co=256
 set relativenumber
 set list
+set hidden
+set encoding=utf-8 
 
 " Saving stuff
 """"""""""""""
@@ -86,6 +94,11 @@ try
     lang en_US
 catch
 endtry
+
+"Notes setup
+""""""""""""
+let g:notes_directories = ['~/Dropbox/nvAlt/']
+let g:notes_suffix = '.txt'
 
 "Break the habit
 """"""""""""""""
@@ -100,10 +113,36 @@ noremap <Right> <NOP>
 "colorscheme smyck
 "colorscheme smyck256
 "colorscheme jellybeans 
+"colorscheme vombato
 colorscheme monokai
 
-"Light colorscheme
-"colorscheme 
+""Light colorscheme
+"set background=light
+""colorscheme blueshift
+"colorscheme pyte
+
+"Powerline
+"let g:Powerline_symbols = 'fancy'
+
+"AirLine 
+"""""""""
+"character of interest ▶ » « ◀
+let g:airline_left_sep = ''
+let g:airline_right_sep=''
+"let g:airline_fonts=1
+"choices dark light badwolf ubaryd solarized powerlineish laederon
+"let g:airline_theme=''
+let g:airline_theme='powerlineish'
+" remove unused modes
+let g:airline_enable_fugitive=0
+"let g:airline_enable_syntastic=0
+" set second section to filename
+"let g:airline_section_b="%f"
+" empty third and fourth sections
+"let g:airline_section_c=""
+"let g:airline_section_x=""
+" put filetype in fifth section
+"let g:airline_section_y="%Y"
 
 "Current Line highlighting
 """"""""""""""""""""""""""
@@ -119,25 +158,17 @@ function! ToggleNuMode()
 endfunc
 nnoremap <Leader>n :call ToggleNuMode()<CR>
 
-"Quick working path change
-""""""""""""""""""""""""""
-cnoremap %% <C-R>=expand('%:h').'/'<Cr>
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
-
 " Whitespace
 """"""""""""
 "set list listchars=tab:\ \ ,trail:·
 
 " help with osx clipboard fun stuff
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin"
+"if has("unix")
+"  let s:uname = system("uname")
+"  if s:uname == "Darwin"
     set clipboard=unnamed
-  endif
-endif
+"  endif
+"endif
     
 "recommend by drupal.org
 set expandtab
@@ -159,18 +190,53 @@ endif
 
 " SASS and Compass setup
 """"""""""""""""""""""""
-au BufRead,BufNewFile *.scss set filetype=scss
-
-"ctrlP
-""""""
-let g:ctrlp_working_path_mode =0
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.sass-cache$\'
+autocmd BufNewFile,BufRead *.scss set ft=scss.css
 
 "search clear
 nnoremap <F3> :set hlsearch!<CR>
 
+" delimitMate
+"""""""""""""
 "balanace 
 let delimitMate_balance_matchpairs = 1
+"expans with enter
+let delimitMate_expand_cr = 1
+au FileType mail let b:delimitMate_expand_cr = 1
+
+" Unite
+"""""""
+"fuzzy clone
+nnoremap <C-p> :Unite -start-insert file_rec -no-split<cr>
+"list buffers
+nnoremap <Leader>b :Unite buffer -no-split<cr>
+
+
+" Neocomplete and snippet
+"""""""""""""""""""""""""
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+" Enable omni completion.
+autocmd FileType css,scss,sass setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.php = '[^.  \t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " Return a corresponding paren to be sent to the buffer
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
