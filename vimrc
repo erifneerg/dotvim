@@ -27,6 +27,7 @@ Bundle 'bling/vim-airline'
 Bundle 'majutsushi/tagbar'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'sjl/gundo.vim'
+"Bundle 'Yggdroot/indentLine'
 
 "Search
 "Bundle 'kien/ctrlp.vim'
@@ -127,14 +128,14 @@ colorscheme monokai
 "AirLine 
 """""""""
 "character of interest ▶ » « ◀
-let g:airline_left_sep = ''
-let g:airline_right_sep=''
+
 "let g:airline_fonts=1
 "choices dark light badwolf ubaryd solarized powerlineish laederon
 "let g:airline_theme=''
 let g:airline_theme='powerlineish'
 " remove unused modes
-let g:airline_enable_fugitive=0
+let g:airline_right_sep=''
+let g:airline_left_sep=''
 "let g:airline_enable_syntastic=0
 " set second section to filename
 "let g:airline_section_b="%f"
