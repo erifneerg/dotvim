@@ -164,12 +164,7 @@ nnoremap <Leader>n :call ToggleNuMode()<CR>
 "set list listchars=tab:\ \ ,trail:·
 
 " help with osx clipboard fun stuff
-"if has("unix")
-"  let s:uname = system("uname")
-"  if s:uname == "Darwin"
-    set clipboard=unnamed
-"  endif
-"endif
+set clipboard+=unnamed
     
 "recommend by drupal.org
 set expandtab
