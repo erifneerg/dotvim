@@ -2,7 +2,7 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
@@ -30,7 +30,6 @@ Bundle 'sjl/gundo.vim'
 "Bundle 'Yggdroot/indentLine'
 
 "Search
-"Bundle 'kien/ctrlp.vim'
 Bundle 'Shougo/unite.vim'
 
 "Auto typing
@@ -80,6 +79,7 @@ set mouse=a
 set wrap
 set linebreak
 set t_Co=256
+set number
 set relativenumber
 set list
 set hidden
@@ -92,7 +92,7 @@ set noswapfile
 au FocusLost * :wa
 "set lang
 try
-    lang en_US
+  lang en_US
 catch
 endtry
 
@@ -107,7 +107,7 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
- 
+
 " Colors and Fonts
 """"""""""""""""""
 "colorscheme twilight256
@@ -166,9 +166,10 @@ nnoremap <Leader>n :call ToggleNuMode()<CR>
 "algin text
 """""""""""
 nmap <C-x> ggVG=``
+
 " help with osx clipboard fun stuff
 set clipboard+=unnamed
-    
+
 "recommend by drupal.org
 set expandtab
 set tabstop=2
@@ -240,20 +241,19 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 " Return a corresponding paren to be sent to the buffer
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! CloseParen()
-    let parenpairs = {'(' : ')',
-                   \  '[' : ']',
-                   \  '{' : '}'}
+  let parenpairs = {'(' : ')',
+        \  '[' : ']',
+        \  '{' : '}'}
 
-    let [m_lnum, m_col] = searchpairpos('[[({]', '', '[\])}]', 'nbW')
+  let [m_lnum, m_col] = searchpairpos('[[({]', '', '[\])}]', 'nbW')
 
-    if (m_lnum != 0) && (m_col != 0)
-        let c = getline(m_lnum)[m_col - 1]
-        return parenpairs[c]
-    endif
-    return ''
+  if (m_lnum != 0) && (m_col != 0)
+    let c = getline(m_lnum)[m_col - 1]
+    return parenpairs[c]
+  endif
+  return ''
 endfun
 imap <C-e> <C-r>=CloseParen()<CR>
-
 " For writing my words
 """"""""""""""""""""""
 func! WordProcessorMode()
@@ -271,7 +271,7 @@ endfu
 com! WP call WordProcessorMode()
 
 func! DropBoxNoteSetup()
-	exec enew
+  exec enew
   "set working path
   "set to WP
   set syntax=markdown
@@ -286,14 +286,21 @@ func! DevMode()
 endfu
 com! DEV call DevMode()
 
+"" Align all elements
+func! Align()
+  au gg
+
+endfu
+com! ALIGN call Align()
+
 "reload vimrc
 augroup vimrcs
   au!
   au bufwritepost ~/.vimrc
-    \ source ~/.vimrc |
-    \ if exists('g:Powerline_loaded') |
-      \ silent! call Pl#Load() |
-    \ endif
+        \ source ~/.vimrc |
+        \ if exists('g:Powerline_loaded') |
+        \ silent! call Pl#Load() |
+        \ endif
 augroup END
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
