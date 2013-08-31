@@ -163,6 +163,9 @@ nnoremap <Leader>n :call ToggleNuMode()<CR>
 """"""""""""
 "set list listchars=tab:\ \ ,trail:·
 
+"algin text
+"""""""""""
+nmap <C-x> ggVG=``
 " help with osx clipboard fun stuff
 set clipboard+=unnamed
     
