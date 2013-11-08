@@ -10,16 +10,19 @@ Bundle 'tpope/vim-sensible'
 
 "Colors
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'slindberg/vim-colors-smyck'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'sickill/vim-monokai'
 Bundle 'molok/vim-vombato-colorscheme'
 Bundle 'Blueshift'
+Bundle 'john2x/flatui.vim'
 Bundle 'pyte'
 ""Syntax
 Bundle 'tpope/vim-markdown'
 "Bundle 'plasticboy/vim-markdown'
 "Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'tpope/vim-haml'
 
 "interface
 Bundle 'bling/vim-airline'
@@ -35,7 +38,6 @@ Bundle 'Shougo/unite.vim'
 "Auto typing
 Bundle 'tpope/vim-surround'
 Bundle 'Raimondi/delimitMate'
-
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
 Bundle 'honza/vim-snippets'
@@ -78,18 +80,19 @@ set mouse=a
 """""""""""""
 set wrap
 set linebreak
-set t_Co=256
 set number
 set relativenumber
 set list
 set hidden
 set encoding=utf-8 
+set undofile
+set undodir=~/.vim/undo/
+syntax sync minlines=200
 
 " Saving stuff
 """"""""""""""
 set ffs=unix,dos,mac " Default file types
 set noswapfile
-au FocusLost * :wa
 "set lang
 try
   lang en_US
@@ -110,20 +113,18 @@ noremap <Right> <NOP>
 
 " Colors and Fonts
 """"""""""""""""""
-"colorscheme twilight256
 "colorscheme smyck
-"colorscheme smyck256
 "colorscheme jellybeans 
 "colorscheme vombato
 colorscheme monokai
-
+"set g:solarized_termcolors=256
+"set background=light
+"colorscheme solarized
 ""Light colorscheme
 "set background=light
-""colorscheme blueshift
+"colorscheme flatui
+"colorscheme blueshift
 "colorscheme pyte
-
-"Powerline
-"let g:Powerline_symbols = 'fancy'
 
 "AirLine 
 """""""""
@@ -132,10 +133,12 @@ colorscheme monokai
 "let g:airline_fonts=1
 "choices dark light badwolf ubaryd solarized powerlineish laederon
 "let g:airline_theme=''
+"let g:airline_powerline_fonts=1
 let g:airline_theme='powerlineish'
+"let g:airline_theme='solarized'
 " remove unused modes
 let g:airline_right_sep=''
-let g:airline_left_sep=''
+let g:airline_left_sep = ''
 "let g:airline_enable_syntastic=0
 " set second section to filename
 "let g:airline_section_b="%f"
@@ -144,6 +147,7 @@ let g:airline_left_sep=''
 "let g:airline_section_x=""
 " put filetype in fifth section
 "let g:airline_section_y="%Y"
+let g:airline#extensions#whitespace#enabled = 0
 
 "Current Line highlighting
 """"""""""""""""""""""""""
@@ -165,7 +169,7 @@ nnoremap <Leader>n :call ToggleNuMode()<CR>
 
 "algin text
 """""""""""
-nmap <C-x> ggVG=``
+nmap <Leader>x ggVG=``
 
 " help with osx clipboard fun stuff
 set clipboard+=unnamed
@@ -190,8 +194,7 @@ endif
 
 " SASS and Compass setup
 """"""""""""""""""""""""
-autocmd BufNewFile,BufRead *.scss set ft=scss.css
-
+autocmd BufNewFile,BufRead *.scss syntax sync fromstart
 "search clear
 nnoremap <F3> :set hlsearch!<CR>
 
@@ -259,7 +262,6 @@ imap <C-e> <C-r>=CloseParen()<CR>
 func! WordProcessorMode()
   setlocal formatoptions=1
   setlocal noexpandtab
-  set norelativenumber
   map j gj
   map k gk
   setlocal spell spelllang=en_us
@@ -267,22 +269,17 @@ func! WordProcessorMode()
   set formatprg=par
   setlocal wrap
   setlocal linebreak
+  TSB
 endfu
 com! WP call WordProcessorMode()
 
-func! DropBoxNoteSetup()
-  exec enew
-  "set working path
-  "set to WP
-  set syntax=markdown
-endfu
-com! NOTE call DropBoxNoteSetup()
 
 func! DevMode()
   unmap j
   unmap k
   set ruler
   set relativenumber
+  TSB
 endfu
 com! DEV call DevMode()
 
@@ -292,6 +289,18 @@ func! Align()
 
 endfu
 com! ALIGN call Align()
+
+func! ToggleStatus()
+  if (&laststatus == 0)
+    set laststatus=2
+  else
+    set laststatus=0
+  endif
+  AirlineToggle
+endfu
+com! TSB call ToggleStatus()
+"Removes Status Bar
+"nmap <Leader>s :TSB<cr>
 
 "reload vimrc
 augroup vimrcs

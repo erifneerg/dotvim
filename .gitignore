@@ -7,3 +7,4 @@ Thumbs.db
 #.vimrc#
 bundle/**
 ~bundle/vundle
+/undo/
