@@ -113,10 +113,10 @@ noremap <Right> <NOP>
 
 " Colors and Fonts
 """"""""""""""""""
-"colorscheme smyck
+colorscheme smyck
 "colorscheme jellybeans 
 "colorscheme vombato
-colorscheme monokai
+"colorscheme monokai
 "set g:solarized_termcolors=256
 "set background=light
 "colorscheme solarized
