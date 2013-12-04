@@ -315,4 +315,7 @@ augroup END
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 
+" Open current file in Marked
+com! Marked !open -a "Marked" %
+
 set nolist
