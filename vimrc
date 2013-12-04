@@ -21,8 +21,8 @@ Bundle 'pyte'
 ""Syntax
 Bundle 'tpope/vim-markdown'
 "Bundle 'plasticboy/vim-markdown'
-"Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'tpope/vim-haml'
+Bundle 'cakebaker/scss-syntax.vim'
+"Bundle 'tpope/vim-haml'
 
 "interface
 Bundle 'bling/vim-airline'
