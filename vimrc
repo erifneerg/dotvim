@@ -42,22 +42,21 @@ Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
 Bundle 'honza/vim-snippets'
 "Bundle 'SirVer/ultisnips'
-
+"Bundle 'Valloric/YouCompleteMe'
 "snippets
 Bundle 'technosophos/drupal-snippets'
 Bundle 'ronny/scss-snippets.vim'
 
 "error checking
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 
 "Movement
 Bundle 'tpope/vim-unimpaired'
 "Search
 Bundle 'mileszs/ack.vim'
 "Note taking
-"
-Bundle 'xolox/vim-notes'
-Bundle 'xolox/vim-misc'
+"Bundle 'xolox/vim-notes'
+"Bundle 'xolox/vim-misc'
 
 "vim addon
 """"""""""
@@ -65,8 +64,8 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 
 "Git
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'tpope/vim-git'
 
 filetype plugin indent on
 
