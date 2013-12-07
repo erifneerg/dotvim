@@ -1,71 +1,79 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-Bundle 'gmarik/vundle'
+call neobundle#rc(expand('~/.vim/bundle/'))
 
-Bundle 'tpope/vim-sensible'
+" Let NeoNeoBundle manage NeoNeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Recommended to install
+" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+NeoBundle 'Shougo/vimproc'
+
+NeoBundle 'tpope/vim-sensible'
 
 "Colors
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'slindberg/vim-colors-smyck'
-Bundle 'Lokaltog/vim-distinguished'
-Bundle 'sickill/vim-monokai'
-Bundle 'molok/vim-vombato-colorscheme'
-Bundle 'Blueshift'
-Bundle 'john2x/flatui.vim'
-Bundle 'pyte'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'slindberg/vim-colors-smyck'
+NeoBundle 'Lokaltog/vim-distinguished'
+NeoBundle 'sickill/vim-monokai'
+NeoBundle 'molok/vim-vombato-colorscheme'
+NeoBundle 'Blueshift'
+NeoBundle 'john2x/flatui.vim'
+NeoBundle 'pyte'
 ""Syntax
-Bundle 'tpope/vim-markdown'
-"Bundle 'plasticboy/vim-markdown'
-Bundle 'cakebaker/scss-syntax.vim'
-"Bundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-markdown'
+"NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'cakebaker/scss-syntax.vim'
+"NeoBundle 'tpope/vim-haml'
 
 "interface
-Bundle 'bling/vim-airline'
-"Bundle 'Lokaltog/vim-powerline'
-Bundle 'majutsushi/tagbar'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'sjl/gundo.vim'
-"Bundle 'Yggdroot/indentLine'
+NeoBundle 'bling/vim-airline'
+"NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'sjl/gundo.vim'
+"NeoBundle 'Yggdroot/indentLine'
 
 "Search
-Bundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite.vim'
 
 "Auto typing
-Bundle 'tpope/vim-surround'
-Bundle 'Raimondi/delimitMate'
-Bundle 'Shougo/neocomplete'
-Bundle 'Shougo/neosnippet'
-Bundle 'honza/vim-snippets'
-"Bundle 'SirVer/ultisnips'
-"Bundle 'Valloric/YouCompleteMe'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'honza/vim-snippets'
+"NeoBundle 'SirVer/ultisnips'
+"NeoBundle 'Valloric/YouCompleteMe'
 "snippets
-Bundle 'technosophos/drupal-snippets'
-Bundle 'ronny/scss-snippets.vim'
+NeoBundle 'technosophos/drupal-snippets'
+NeoBundle 'ronny/scss-snippets.vim'
 
 "error checking
-"Bundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 
 "Movement
-Bundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-unimpaired'
 "Search
-Bundle 'mileszs/ack.vim'
+NeoBundle 'mileszs/ack.vim'
 "Note taking
-"Bundle 'xolox/vim-notes'
-"Bundle 'xolox/vim-misc'
+"NeoBundle 'xolox/vim-notes'
+"NeoBundle 'xolox/vim-misc'
 
 "vim addon
 """"""""""
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
+NeoBundle 'MarcWeber/vim-addon-mw-utils'
+NeoBundle 'tomtom/tlib_vim'
 
 "Git
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'tpope/vim-git'
+"NeoBundle 'tpope/vim-fugitive'
+"NeoBundle 'tpope/vim-git'
 
 filetype plugin indent on
 
