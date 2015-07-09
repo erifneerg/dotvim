@@ -1,18 +1,14 @@
-set nocompatible
-filetype off
-
 if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
-" Let NeoNeoBundle manage NeoNeoBundle
+" Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Recommended to install
-" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc'
 
 NeoBundle 'tpope/vim-sensible'
 
@@ -75,6 +71,10 @@ NeoBundle 'tomtom/tlib_vim'
 "NeoBundle 'tpope/vim-fugitive'
 "NeoBundle 'tpope/vim-git'
 
+" Required:
+call neobundle#end()
+
+" Required:
 filetype plugin indent on
 
 let g:netrw_home=$HOME . '/.hide'
